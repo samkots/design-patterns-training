@@ -2,7 +2,8 @@
 exe		=	a.out
 
 #source		=	3_1_observer_push_model.cpp
-source		=	3_2_observer_pull_model.cpp
+#source		=	3_2_observer_pull_model.cpp
+source		=	4_strategy.cpp
 
 
 a.out:	$(source)
