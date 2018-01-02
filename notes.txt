@@ -1,0 +1,103 @@
+Design Patterns Training
+------------------------
+
+
+World	>	Thing	>	Characteristics
+
+problem ---> solution
+complex ---> breakdown(decomposition/factorization)
+
+
+system ~ anything... a car? an action? whatever....
+system ~ broken down into modules/components c1, c2...
+
+ex. A program is madeup of functions.. so our unit of modularity is function.
+
+decomposition ~-> dependency
+
+cyclic dependency ~ bad
+
+direct dependency == tight coupling
+
+main() -> f() -> g()
+	tight coupling: main() - f() & f() - g()
+	loose coupling: main() - g()
+
+indirection		~->		loose coupling
+	
+tight coupling ~-> rigid system	
+loose coupling ~-> flexible system
+
+
+
+change is ok.
+impact of change matters. ~ good / bad
+
+
+Christopher Alexander -- book on construction
+
+
+
+code evolution:
+--------------
+
+level 0:
+-------
+
+int main() { cout << "Hello\n"; }
+
+
+level 1:				-- method extraction
+-------
+
+void f() { cout << "Hello\n"; }
+int main() { f(); }
+
+
+level 2:
+-------
+
+class x {
+	public: void f()  { cout << "Hello\n"; }
+};
+
+int main() {
+	x* x = new x;
+	x->f();
+}
+
+
+level 3:
+-------
+
+class i {									// interface
+	public: virtual void f() = 0;
+};
+
+class x : public i {								// implementation
+	public: void f() { cout << "Hello\n"; }
+};
+
+int main() {
+	i* i = new x;					// client still knows about x(implementation) -- still bad
+	i->f();
+}
+
+
+
+"The client "programs to" an interface and not to implemetation."
+
+
+Proxy Design Pattern:
+--------------------
+
+ISubject
+	<-- RealSubject
+	<-- Proxy
+
+get_subject() -> ISubject*
+	
+	client gets proxy
+	proxy object redirects to the real subject.
+
+
