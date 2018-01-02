@@ -2,7 +2,8 @@
 exe		=	a.out
 
 
-source		=	1_proxy.cpp
+#source		=	1_proxy.cpp
+source		=	2_composit.cpp
 #source		=	3_1_observer_push_model.cpp
 #source		=	3_2_observer_pull_model.cpp
 #source		=	4_strategy.cpp
